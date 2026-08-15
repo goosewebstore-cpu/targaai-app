@@ -148,15 +148,15 @@ function photoURL(body, paint, scene) { return carSVG({ body: body, paint: paint
 
 /* ---------- Catalogo demo ---------- */
 const FLEET = [
-  { name: 'Fiat 500 Lounge', body: 'hatch', paint: COLORS.Bianco, scene: 'studio', meta: '1.0 Hybrid · 2019' },
-  { name: 'Volkswagen Golf 1.5', body: 'hatch', paint: COLORS.Rosso, scene: 'road', meta: '1.5 TSI · 2021' },
-  { name: 'BMW 320d', body: 'sedan', paint: COLORS.Nero, scene: 'garage', meta: '2.0 Diesel · 2020' },
-  { name: 'Tesla Model Y', body: 'suv', paint: COLORS.Grigio, scene: 'road', meta: 'Elettrica · 2022' },
-  { name: 'Ford Mustang GT', body: 'sport', paint: COLORS.Giallo, scene: 'studio', meta: '5.0 V8 · 2018' },
-  { name: 'Alfa Romeo Stelvio', body: 'suv', paint: COLORS.Blu, scene: 'garage', meta: '2.2 Diesel · 2020' },
-  { name: 'Porsche 911 Carrera', body: 'sport', paint: COLORS.Grigio, scene: 'road', meta: '3.0 Benzina · 2021' },
-  { name: 'Land Rover Defender', body: 'suv', paint: COLORS.Verde, scene: 'road', meta: '2.0 Diesel · 2022' },
-  { name: 'Mini Cooper S', body: 'hatch', paint: COLORS.Arancio, scene: 'garage', meta: '2.0 Benzina · 2019' }
+  { name: 'Fiat 500 Lounge', body: 'hatch', paint: COLORS.Bianco, scene: 'studio', meta: '1.0 Hybrid · 2019', fuel: 'Hybrid', cc: 1000, cv: 70, color: 'Bianco', trans: 'Automatico' },
+  { name: 'Volkswagen Golf 1.5', body: 'hatch', paint: COLORS.Rosso, scene: 'road', meta: '1.5 TSI · 2021', fuel: 'Benzina', cc: 1500, cv: 130, color: 'Rosso', trans: 'Manuale 6 marce' },
+  { name: 'BMW 320d', body: 'sedan', paint: COLORS.Nero, scene: 'garage', meta: '2.0 Diesel · 2020', fuel: 'Diesel', cc: 2000, cv: 190, color: 'Nero', trans: 'Automatico' },
+  { name: 'Tesla Model Y', body: 'suv', paint: COLORS.Grigio, scene: 'road', meta: 'Elettrica · 2022', fuel: 'Elettrica', cc: 0, cv: 514, color: 'Grigio', trans: 'Automatico' },
+  { name: 'Ford Mustang GT', body: 'sport', paint: COLORS.Giallo, scene: 'studio', meta: '5.0 V8 · 2018', fuel: 'Benzina', cc: 5000, cv: 450, color: 'Giallo', trans: 'Manuale 6 marce' },
+  { name: 'Alfa Romeo Stelvio', body: 'suv', paint: COLORS.Blu, scene: 'garage', meta: '2.2 Diesel · 2020', fuel: 'Diesel', cc: 2200, cv: 210, color: 'Blu', trans: 'Automatico' },
+  { name: 'Porsche 911 Carrera', body: 'sport', paint: COLORS.Grigio, scene: 'road', meta: '3.0 Benzina · 2021', fuel: 'Benzina', cc: 3000, cv: 385, color: 'Grigio', trans: 'Automatico DCT' },
+  { name: 'Land Rover Defender', body: 'suv', paint: COLORS.Verde, scene: 'road', meta: '2.0 Diesel · 2022', fuel: 'Diesel', cc: 2000, cv: 240, color: 'Verde', trans: 'Automatico' },
+  { name: 'Mini Cooper S', body: 'hatch', paint: COLORS.Arancio, scene: 'garage', meta: '2.0 Benzina · 2019', fuel: 'Benzina', cc: 2000, cv: 192, color: 'Arancio', trans: 'Manuale 6 marce' }
 ];
 function buildGallery() {
   const g = document.getElementById('gallery');
@@ -227,9 +227,9 @@ function makeVehicle(plate) {
 function vehicleFromFleet(plate, f) {
   return {
     plate: plate, brand: f.name.split(' ')[0], model: f.name.split(' ')[1], trim: f.name.split(' ').slice(2).join(' ') || 'GT',
-    year: parseInt(f.meta.match(/\d{4}/)[0]), km: 28000, fuel: f.meta.split('·')[0].trim(),
-    cv: 150, cc: 1500, transmission: 'Automatico', doors: 5, color: 'Nero',
-    body: f.body, scene: f.scene, value: 31500, min: 29000, max: 34000,
+    year: parseInt(f.meta.match(/\d{4}/)[0]), km: 28000, fuel: f.fuel,
+    cv: f.cv, cc: f.cc, transmission: f.trans, doors: 5,
+    color: f.color, body: f.body, scene: f.scene, value: 31500, min: 29000, max: 34000,
     month: 4, chassis: 'DEMO' + f.body.toUpperCase()
   };
 }
@@ -237,9 +237,10 @@ function vehicleFromFleet(plate, f) {
 /* ---------- Render report ---------- */
 function vehiclePaint(v) { return COLORS[v.color] || '#C8301E'; }
 function renderReport(v) {
+  const ev = v.fuel === 'Elettrica';
   document.getElementById('reportPlate').textContent = v.plate;
   document.getElementById('reportName').textContent = v.brand + ' ' + v.model + ' ' + v.trim;
-  document.getElementById('reportMeta').textContent = (v.cc / 1000).toFixed(1) + ' L · ' + v.cv + ' CV · ' + v.fuel + ' · ' + v.year;
+  document.getElementById('reportMeta').textContent = (ev ? 'EV' : (v.cc / 1000).toFixed(1) + ' L') + ' · ' + v.cv + ' CV · ' + v.fuel + ' · ' + v.year;
   document.getElementById('reportPrice').textContent = v.value.toLocaleString('it-IT') + ' EUR';
   document.getElementById('reportRange').textContent = 'Range: ' + v.min.toLocaleString('it-IT') + ' – ' + v.max.toLocaleString('it-IT') + ' EUR';
   document.getElementById('reportChips').innerHTML =
@@ -251,7 +252,7 @@ function renderReport(v) {
     '<div class="info-item"><div class="info-label">Immatricolazione</div><div class="info-value">' + v.month + '/' + v.year + '</div></div>' +
     '<div class="info-item"><div class="info-label">Alimentazione</div><div class="info-value">' + v.fuel + '</div></div>' +
     '<div class="info-item"><div class="info-label">Potenza</div><div class="info-value">' + v.cv + ' CV</div></div>' +
-    '<div class="info-item"><div class="info-label">Cilindrata</div><div class="info-value">' + v.cc + ' cc</div></div>' +
+    '<div class="info-item"><div class="info-label">Cilindrata</div><div class="info-value">' + (ev ? 'Motore elettrico' : v.cc + ' cc') + '</div></div>' +
     '<div class="info-item"><div class="info-label">Cambio</div><div class="info-value">' + v.transmission + '</div></div>' +
     '<div class="info-item"><div class="info-label">Telaio</div><div class="info-value">' + v.chassis + '</div></div>' +
     '<div class="info-item"><div class="info-label">Prossima revisione</div><div class="info-value">' + (v.year + 2) + '</div></div>' +
@@ -414,7 +415,7 @@ function exportPDF() {
     '<tr><td>Anno</td><td>' + v.year + ' (immatricolazione ' + v.month + '/' + v.year + ')</td></tr>' +
     '<tr><td>Kilometraggio</td><td>' + it(v.km) + ' km</td></tr>' +
     '<tr><td>Alimentazione</td><td>' + v.fuel + '</td></tr>' +
-    '<tr><td>Potenza</td><td>' + v.cv + ' CV · ' + v.cc + ' cc</td></tr>' +
+    '<tr><td>Potenza</td><td>' + v.cv + ' CV · ' + (v.fuel === 'Elettrica' ? 'Motore elettrico' : v.cc + ' cc') + '</td></tr>' +
     '<tr><td>Cambio</td><td>' + v.transmission + '</td></tr>' +
     '<tr><td>Porte</td><td>' + v.doors + '</td></tr>' +
     '<tr><td>Colore</td><td>' + v.color + '</td></tr>' +

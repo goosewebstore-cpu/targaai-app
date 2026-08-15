@@ -3,9 +3,11 @@
 App completa, GRATIS al 100%, installabile su Android e iOS.
 Nessun abbonamento, nessun account: tutte le funzioni sono incluse.
 
-## LIVE
-https://goosewebstore-cpu.github.io/targaai-app/
+## LIVE (Cloudflare Pages)
+https://targaai.pages.dev
 (aggiungi #demo all'URL per un report di esempio)
+
+Backup su GitHub Pages: https://goosewebstore-cpu.github.io/targaai-app/
 
 ## File inclusi
 - index.html — App principale (design scuro, ottimizzato mobile)
@@ -16,10 +18,16 @@ https://goosewebstore-cpu.github.io/targaai-app/
 - og-image.svg — Banner condivisione social
 - Le foto dei veicoli sono generate come SVG in locale (niente upload, funziona offline)
 
-## Come aggiornare il deploy (gratis, GitHub Pages)
+## Come aggiornare il deploy (gratis)
+
+### Cloudflare Pages (principale)
+1. wrangler pages deploy . --project-name targaai --commit-dirty=true
+2. Live in ~10 secondi
+
+### GitHub Pages (backup)
 1. git add . && git commit -m "descrizione"
 2. git push origin main
-3. GitHub Pages pubblica automaticamente in ~1 minuto
+3. GitHub pubblica automaticamente in ~1 minuto
 
 ## Per APK (Android)
 1. Vai su https://www.pwabuilder.com
