@@ -36,6 +36,6 @@ Backup su GitHub Pages: https://goosewebstore-cpu.github.io/targaai-app/
 
 ## Note
 - Cambia G-XXXXXXXXXX con il tuo ID Google Analytics reale (index.html)
-- Cambia il numero WhatsApp (cerca 391234567890 in index.html)
+- WhatsApp assistenza: +39 352 004 0979 (già configurato in index.html)
 - Aggiorna le URL og:image/twitter:image se cambi dominio
 - I report sono DEMO generati localmente: le foto sono illustrazioni SVG, non foto reali
