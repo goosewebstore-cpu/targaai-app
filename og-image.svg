@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0C0E12"/>
+      <stop offset="1" stop-color="#151923"/>
+    </linearGradient>
+    <linearGradient id="paint" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#E8E9EB"/>
+      <stop offset="0.5" stop-color="#E8E9EB"/>
+      <stop offset="1" stop-color="#C9CCD2"/>
+    </linearGradient>
+    <linearGradient id="glass" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#3A4657"/>
+      <stop offset="1" stop-color="#12161E"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect x="0" y="0" width="1200" height="10" fill="#E41D2D"/>
+  <circle cx="1070" cy="120" r="300" fill="#E41D2D" opacity="0.05"/>
+  <text x="80" y="196" font-family="Arial Narrow, Arial, sans-serif" font-weight="700" font-size="34" letter-spacing="14" fill="#6B7484">IL TUO ESPERTO D'AUTO</text>
+  <text x="76" y="330" font-family="Arial Narrow, Arial, sans-serif" font-weight="700" font-size="128" fill="#F2F5F9">TARGA<span fill="#E41D2D">AI</span></text>
+  <text x="82" y="396" font-family="Arial, sans-serif" font-weight="600" font-size="44" fill="#98A2B3">Tutto sulla tua auto in 3 secondi. Gratis.</text>
+  <g transform="translate(640 250) scale(0.72)">
+    <ellipse cx="250" cy="310" rx="150" ry="10" fill="#000" opacity="0.5"/>
+    <ellipse cx="150" cy="278" rx="45" ry="25" fill="#0B0D11" opacity="0.88"/>
+    <ellipse cx="480" cy="278" rx="45" ry="25" fill="#0B0D11" opacity="0.88"/>
+    <path d="M56 270 C58 242 74 224 106 214 C124 208 142 206 158 206 C172 182 192 160 226 148 C250 139 278 136 306 136 C344 136 368 142 398 160 C416 170 428 182 438 196 C458 188 486 184 520 192 C556 200 576 210 586 226 C592 238 592 252 588 262 L584 282 L56 282 Z" fill="url(#paint)"/>
+    <path d="M212 202 C226 178 248 162 276 152 C300 144 322 142 340 146 C356 150 366 158 376 168 C386 180 390 194 392 202 Z" fill="url(#glass)"/>
+    <path d="M560 222 L584 216 L592 230 L566 236 Z" fill="#FFF7CC"/>
+    <path d="M58 220 L78 216 L82 228 L62 232 Z" fill="#FF5544"/>
+    <circle cx="150" cy="284" r="30" fill="#10131A"/>
+    <circle cx="150" cy="284" r="15.5" fill="#2E333C"/>
+    <circle cx="150" cy="284" r="5" fill="#E41D2D"/>
+    <circle cx="480" cy="284" r="30" fill="#10131A"/>
+    <circle cx="480" cy="284" r="15.5" fill="#2E333C"/>
+    <circle cx="480" cy="284" r="5" fill="#E41D2D"/>
+  </g>
+  <text x="80" y="560" font-family="Arial Narrow, Arial, sans-serif" font-weight="600" font-size="30" letter-spacing="8" fill="#6B7484">BY AUTOESPERTO</text>
+  <rect x="80" y="584" width="240" height="8" rx="4" fill="#E41D2D"/>
+</svg>

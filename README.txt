@@ -3,26 +3,23 @@
 App completa, GRATIS al 100%, installabile su Android e iOS.
 Nessun abbonamento, nessun account: tutte le funzioni sono incluse.
 
+## LIVE
+https://goosewebstore-cpu.github.io/targaai-app/
+(aggiungi #demo all'URL per un report di esempio)
+
 ## File inclusi
 - index.html — App principale (design scuro, ottimizzato mobile)
 - app.js — Logica: foto targa, report, garage, PDF, galleria "La flotta"
 - manifest.json — Configurazione PWA
 - sw.js — Service Worker per offline
 - icon-192.svg / icon-512.svg — Icone app
+- og-image.svg — Banner condivisione social
 - Le foto dei veicoli sono generate come SVG in locale (niente upload, funziona offline)
 
-## Come pubblicare (gratis)
-
-### Opzione A — Vercel CLI (consigliata)
-1. Installa Vercel CLI: npm i -g vercel
-2. vercel login
-3. Nella cartella del progetto: vercel --prod --yes
-4. Ottieni un URL tipo https://targaai-app.vercel.app
-
-### Opzione B — Netlify Drop (zero comandi)
-1. Vai su https://app.netlify.com/drop
-2. Trascina questa cartella intera
-3. Ottieni un URL tipo https://targaai-abc123.netlify.app
+## Come aggiornare il deploy (gratis, GitHub Pages)
+1. git add . && git commit -m "descrizione"
+2. git push origin main
+3. GitHub Pages pubblica automaticamente in ~1 minuto
 
 ## Per APK (Android)
 1. Vai su https://www.pwabuilder.com
@@ -32,5 +29,5 @@ Nessun abbonamento, nessun account: tutte le funzioni sono incluse.
 ## Note
 - Cambia G-XXXXXXXXXX con il tuo ID Google Analytics reale (index.html)
 - Cambia il numero WhatsApp (cerca 391234567890 in index.html)
-- Il dominio https://targaai.app è un segnaposto: aggiornalo nel deploy se lo possiedi
+- Aggiorna le URL og:image/twitter:image se cambi dominio
 - I report sono DEMO generati localmente: le foto sono illustrazioni SVG, non foto reali

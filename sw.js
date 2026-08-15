@@ -1,11 +1,12 @@
-const CACHE_NAME = 'targaai-v2';
+const CACHE_NAME = 'targaai-v3';
 const urlsToCache = [
   './',
   './index.html',
   './app.js',
   './manifest.json',
   './icon-192.svg',
-  './icon-512.svg'
+  './icon-512.svg',
+  './og-image.svg'
 ];
 
 self.addEventListener('install', event => {

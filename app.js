@@ -153,7 +153,10 @@ const FLEET = [
   { name: 'BMW 320d', body: 'sedan', paint: COLORS.Nero, scene: 'garage', meta: '2.0 Diesel · 2020' },
   { name: 'Tesla Model Y', body: 'suv', paint: COLORS.Grigio, scene: 'road', meta: 'Elettrica · 2022' },
   { name: 'Ford Mustang GT', body: 'sport', paint: COLORS.Giallo, scene: 'studio', meta: '5.0 V8 · 2018' },
-  { name: 'Alfa Romeo Stelvio', body: 'suv', paint: COLORS.Blu, scene: 'garage', meta: '2.2 Diesel · 2020' }
+  { name: 'Alfa Romeo Stelvio', body: 'suv', paint: COLORS.Blu, scene: 'garage', meta: '2.2 Diesel · 2020' },
+  { name: 'Porsche 911 Carrera', body: 'sport', paint: COLORS.Grigio, scene: 'road', meta: '3.0 Benzina · 2021' },
+  { name: 'Land Rover Defender', body: 'suv', paint: COLORS.Verde, scene: 'road', meta: '2.0 Diesel · 2022' },
+  { name: 'Mini Cooper S', body: 'hatch', paint: COLORS.Arancio, scene: 'garage', meta: '2.0 Benzina · 2019' }
 ];
 function buildGallery() {
   const g = document.getElementById('gallery');
